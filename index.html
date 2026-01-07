@@ -12,7 +12,14 @@
       background-color: #ffffff;
       color: #0F172A;
       line-height: 1.6;
-      scroll-behavior: smooth; /* Smooth scrolling */
+    }
+
+    html {
+      scroll-behavior: auto; /* use custom JS scroll */
+    }
+
+    html, body {
+      scroll-padding-top: 50px;
     }
 
     header {
@@ -133,8 +140,7 @@
   <h1>J’s Premium Vending</h1>
   <p>Modern Vending Solutions • No Cost to Your Business</p>
   <p>Serving Katy & Houston • Call or Text: <strong>979-331-5598</strong></p>
-  <!-- Smooth scrolling -->
-  <a href="#form" class="btn">Request a Free Vending Machine</a>
+  <a href="#form" class="btn" id="scrollBtn">Request a Free Vending Machine</a>
 </header>
 
 <section>
@@ -224,15 +230,24 @@
 </footer>
 
 <script>
+  // Smooth slide animation scroll
+  document.getElementById("scrollBtn").addEventListener("click", function(event) {
+    event.preventDefault();
+    const formSection = document.getElementById("form");
+    const formPosition = formSection.getBoundingClientRect().top + window.pageYOffset - 20;
+    window.scrollTo({
+      top: formPosition,
+      behavior: "smooth"
+    });
+  });
+
   // Email form
   function sendEmail(event) {
     event.preventDefault();
-
     window.location.href =
       "mailto:jspremiumvending@gmail.com" +
       "?subject=New Free Vending Machine Request" +
       "&body=Someone just requested a free vending machine.";
-
     document.getElementById("successMessage").style.display = "block";
   }
 </script>
