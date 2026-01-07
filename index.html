@@ -12,6 +12,7 @@
       background-color: #ffffff;
       color: #0F172A;
       line-height: 1.6;
+      scroll-behavior: smooth; /* Smooth scrolling */
     }
 
     header {
@@ -38,6 +39,7 @@
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
+      cursor: pointer;
     }
 
     section {
@@ -131,6 +133,7 @@
   <h1>J’s Premium Vending</h1>
   <p>Modern Vending Solutions • No Cost to Your Business</p>
   <p>Serving Katy & Houston • Call or Text: <strong>979-331-5598</strong></p>
+  <!-- Smooth scrolling -->
   <a href="#form" class="btn">Request a Free Vending Machine</a>
 </header>
 
@@ -195,7 +198,7 @@
     <!-- Google Maps Search -->
     <input 
       type="search" 
-      placeholder="Business Address (Search on Google Maps)" 
+      placeholder="Business Address (Click to search on Google Maps)" 
       onclick="window.open('https://www.google.com/maps','_blank')"
       required
     >
@@ -221,6 +224,7 @@
 </footer>
 
 <script>
+  // Email form
   function sendEmail(event) {
     event.preventDefault();
 
